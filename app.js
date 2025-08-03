@@ -6,10 +6,11 @@ const logger = require('morgan');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const compression = require('compression');
-
-const electricRouter = require('./routes/electric_index');
-const gasRouter = require('./routes/gas_index');
+const suvRouter = require('./routes/suv_index');
+const hatchbackRouter = require('./routes/hatchback_index');
+const saloonRouter = require('./routes/saloon_index');
 const adminRouter = require('./routes/admin');
+
 var UserModel = require("./models/CustomerModel");
 const app = express();
 
@@ -66,8 +67,9 @@ app.get('/home', function (req, res) {
 });
 
 app.use('/admin', adminRouter);
-app.use('/electric', electricRouter);
-app.use('/gas', gasRouter);
+app.use('/suv', suvRouter);
+app.use('/hatchback', hatchbackRouter);
+app.use('/saloon', saloonRouter);
 
 
 //Users
