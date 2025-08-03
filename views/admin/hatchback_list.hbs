@@ -1,0 +1,10 @@
+<h2>All Hatchback Cars</h2>
+<a href="/admin/addhatchback">Add New Hatchback</a>
+<ul>
+{{#each list}}
+    <li>
+        <strong>{{title}}</strong> - {{brand}} ({{year}}) - ${{price}}
+        <a href="/admin/deletehatchback/{{_id}}">Delete</a>
+    </li>
+{{/each}}
+</ul>

@@ -1,0 +1,10 @@
+<h2>All SUV Cars</h2>
+<a href="/admin/addsuv">Add New SUV</a>
+<ul>
+{{#each list}}
+    <li>
+        <strong>{{title}}</strong> - {{brand}} ({{year}}) - ${{price}}
+        <a href="/admin/deletesuv/{{_id}}">Delete</a>
+    </li>
+{{/each}}
+</ul>
