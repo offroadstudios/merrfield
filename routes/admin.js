@@ -123,6 +123,11 @@ router.post('/addhatchback', upload, async function (req, res) {
         imagePath: req.file ? 'images/' + req.file.originalname : ''
     });
     await hatchback.save();
+
+router.post('/addhatchback', async function (req, res) {
+    let hatchback = new HatchbackModel(req.body);
+    result = await hatchback.save();
+
     res.redirect('/admin/hatchback');
 });
 
@@ -141,6 +146,7 @@ router.get('/addsuv', (req, res) => {
     res.render("admin/suv_form", { layout: false });
 });
 
+
 router.post('/addsuv', upload, async function (req, res) {
     let suv = new SUVModel({
         title: req.body.title,
@@ -152,6 +158,11 @@ router.post('/addsuv', upload, async function (req, res) {
         imagePath: req.file ? 'images/' + req.file.originalname : ''
     });
     await suv.save();
+
+router.post('/addsuv', async function (req, res) {
+    let suv = new SUVModel(req.body);
+    result = await suv.save();
+
     res.redirect('/admin/suv');
 });
 
@@ -170,6 +181,7 @@ router.get('/addsaloon', (req, res) => {
     res.render("admin/saloon_form", { layout: false });
 });
 
+
 router.post('/addsaloon', upload, async function (req, res) {
     let saloon = new SaloonModel({
         title: req.body.title,
@@ -181,6 +193,11 @@ router.post('/addsaloon', upload, async function (req, res) {
         imagePath: req.file ? 'images/' + req.file.originalname : ''
     });
     await saloon.save();
+
+router.post('/addsaloon', async function (req, res) {
+    let saloon = new SaloonModel(req.body);
+    result = await saloon.save();
+
     res.redirect('/admin/saloon');
 });
 
