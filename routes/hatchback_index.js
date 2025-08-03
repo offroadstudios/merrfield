@@ -1,20 +1,20 @@
 var express = require('express');
 const mongoose = require('mongoose');
 var router = express.Router();
-var ElectricModel = require("../models/ElectricModel");
+var HatchbackModel = require("../models/HatchbackModel");
 
 router.use(express.static("public"));
 
 
-// GET Electric Cars
+// GET Hatchback Cars
 router.get('/', async function (req, res) {
 
-    let electric_models = await ElectricModel.find();
-    res.render("electric_index.hbs", { models: electric_models });
+    let hatchback_models = await HatchbackModel.find();
+    res.render("hatchback_index.hbs", { models: hatchback_models });
 });
 
 
-// GET Filtering Electric Cars
+// GET Filtering Hatchback Cars
 router.get('/filter', async function (req, res) {
 
 
@@ -25,25 +25,25 @@ router.get('/filter', async function (req, res) {
     console.log(sortBy);
 
     if (sortBy == 'latest') {
-        filtered_models = await ElectricModel.find().sort({ year: -1 });
+        filtered_models = await HatchbackModel.find().sort({ year: -1 });
     }
     else if (sortBy == 'highprice') {
-        filtered_models = await ElectricModel.find().sort({ price: -1 });
+        filtered_models = await HatchbackModel.find().sort({ price: -1 });
     }
     else if (sortBy == 'lowprice') {
-        filtered_models = await ElectricModel.find().sort({ price: 1 });
+        filtered_models = await HatchbackModel.find().sort({ price: 1 });
     }
     else if (sortBy == 'highrange') {
-        filtered_models = await ElectricModel.find().sort({ range: -1 });
+        filtered_models = await HatchbackModel.find().sort({ range: -1 });
     }
     else if (sortBy == 'lowrange') {
-        filtered_models = await ElectricModel.find().sort({ range: 1 });
+        filtered_models = await HatchbackModel.find().sort({ range: 1 });
     }
     else if (sortBy == 'highperf') {
-        filtered_models = await ElectricModel.find().sort({ time60: 1 });
+        filtered_models = await HatchbackModel.find().sort({ time60: 1 });
     }
     else if (sortBy == 'lowperf') {
-        filtered_models = await ElectricModel.find().sort({ time60: -1 });
+        filtered_models = await HatchbackModel.find().sort({ time60: -1 });
     }
 
 
@@ -53,7 +53,7 @@ router.get('/filter', async function (req, res) {
     if (priceBy != undefined) {
         const priceLt = priceBy.slice(5) + '000';
         console.log(priceLt);
-        filtered_models = await ElectricModel.find({ price: { $lte: priceLt } }).sort({ price: -1 });
+        filtered_models = await HatchbackModel.find({ price: { $lte: priceLt } }).sort({ price: -1 });
     }
 
 
@@ -62,25 +62,25 @@ router.get('/filter', async function (req, res) {
     if (year != undefined) {
         year = year.slice(4);
         console.log(year);
-        filtered_models = await ElectricModel.find({ year: year });
+        filtered_models = await HatchbackModel.find({ year: year });
     }
 
     var yearLt = req.query.yearLt;
     if (yearLt != undefined) {
         yearLt = yearLt.slice(4);
         console.log(yearLt);
-        filtered_models = await ElectricModel.find({ year: { $lte: yearLt } });
+        filtered_models = await HatchbackModel.find({ year: { $lte: yearLt } });
     }
 
     var rangeLt = req.query.rangeLt;
     if (rangeLt != undefined) {
         console.log(rangeLt);
-        filtered_models = await ElectricModel.find({ range: { $lte: rangeLt } }).sort({ range: -1 });
+        filtered_models = await HatchbackModel.find({ range: { $lte: rangeLt } }).sort({ range: -1 });
     }
 
 
     //console.log(filtered_models);
-    res.render("electric_index.hbs", { models: filtered_models });
+    res.render("hatchback_index.hbs", { models: filtered_models });
 
 });
 
@@ -94,15 +94,15 @@ router.get('/booknow/:id', async function (req, res) {
     let modelid = req.params.id;
     console.log(modelid);
 
-    let booked_model = await ElectricModel.findById(modelid);
+    let booked_model = await HatchbackModel.findById(modelid);
     //console.log(booked_model);
-    res.render("booking.hbs", { model: booked_model });
+    res.render("hatchbackbooking.hbs", { model: booked_model });
 
 });
 
 router.get('/filter/booknow/:id', async (req, res) => {
     let modelid = req.params.id;
-    res.redirect('/electric/booknow/' + modelid);
+    res.redirect('/hatchback/booknow/' + modelid);
 });
 
 
