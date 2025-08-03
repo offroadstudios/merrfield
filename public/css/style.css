@@ -170,7 +170,8 @@ p{
 
 }
 
-.info-second-row-gas{
+.info-second-row-suv,
+.info-second-row-saloon{
     margin-top: 5% !important;
     margin-left: 2% !important;
     margin-right: 0% !important;
@@ -183,18 +184,21 @@ p{
     padding: 0 !important;
 }
 
-.info-second-col-gas{
+.info-second-col-suv,
+.info-second-col-saloon{
     margin-top: 0%;
     padding: 0 !important;
 }
 
 
-.info-second-col-gas li{
+.info-second-col-suv li,
+.info-second-col-saloon li{
     margin-bottom: 6%;  
     list-style-type:none;
 }
 
-.info-second-col-gas ul{
+.info-second-col-suv ul,
+.info-second-col-saloon ul{
     padding: 0;
     margin: 0;
 }

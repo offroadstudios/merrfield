@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const ElectricModel = require("../models/ElectricModel");
-const GasModel = require('../models/GasModel');
+const HatchbackModel = require('../models/HatchbackModel');
+const SUVModel = require('../models/SUVModel');
+const SaloonModel = require('../models/SaloonModel');
 const ServiceModel = require('../models/ServiceModel');
 const CustomerModel = require('../models/CustomerModel');
 const UserModel = require("../models/UserModel");
@@ -92,88 +93,77 @@ router.get('/admin_index', async function (req, res) {
 });
 
 
-// GET Electric Cars
-router.get('/electric', async function (req, res) {
 
-    let electric_models = await ElectricModel.find();
-    res.render("admin/electric_list", { list: electric_models, layout: 'layout_list' });
+
+
+
+
+
+
+
+// GET Hatchback Cars
+router.get('/hatchback', async function (req, res) {
+    let hatchback_models = await HatchbackModel.find();
+    res.render("admin/hatchback_list", { list: hatchback_models, layout: 'layout_list' });
 });
 
-
-// Get Add electric Cars Form Page
-router.get('/addelectric', (req, res) => {
-    res.render("admin/electric_form", { layout: false });
+// Add Hatchback Car Form
+router.get('/addhatchback', (req, res) => {
+    res.render("admin/hatchback_form", { layout: false });
 });
 
-
-// POST Electric Car Form
-router.post('/addelectric', async function (req, res) {
-
-    let electric = new ElectricModel(req.body);
-
-    result = await electric.save();
-    console.log(result);
-
-    res.redirect('/admin/electric');
-
+router.post('/addhatchback', async function (req, res) {
+    let hatchback = new HatchbackModel(req.body);
+    result = await hatchback.save();
+    res.redirect('/admin/hatchback');
 });
 
-
-// Delete Electric Car
-router.get('/deleteelectric/:id', async function (req, res) {
-
-    const result = await ElectricModel.findByIdAndRemove(req.params.id);
-    console.log(result);
-
-    res.redirect('/admin/electric');
+router.get('/deletehatchback/:id', async function (req, res) {
+    const result = await HatchbackModel.findByIdAndRemove(req.params.id);
+    res.redirect('/admin/hatchback');
 });
 
-
-
-
-
-
-
-// GET Gas Cars
-router.get('/gas', async function (req, res) {
-
-    let gas_models = await GasModel.find();
-    res.render("admin/gas_list", { list: gas_models, layout: 'layout_list' });
+// GET SUV Cars
+router.get('/suv', async function (req, res) {
+    let suv_models = await SUVModel.find();
+    res.render("admin/suv_list", { list: suv_models, layout: 'layout_list' });
 });
 
-
-// Get Add Gas Cars Form Page
-router.get('/addgas', (req, res) => {
-    res.render("admin/gas_form", { layout: false });
+router.get('/addsuv', (req, res) => {
+    res.render("admin/suv_form", { layout: false });
 });
 
-// POST Gas Car Form
-router.post('/addgas', async function (req, res) {
-
-    let gas = new GasModel(req.body);
-
-    result = await gas.save();
-    console.log(result);
-
-    res.redirect('/admin/gas');
-
+router.post('/addsuv', async function (req, res) {
+    let suv = new SUVModel(req.body);
+    result = await suv.save();
+    res.redirect('/admin/suv');
 });
 
-
-// Delete Gas Car
-router.get('/deletegas/:id', async function (req, res) {
-
-    const result = await GasModel.findByIdAndRemove(req.params.id);
-    console.log(result);
-
-    res.redirect('/admin/gas');
+router.get('/deletesuv/:id', async function (req, res) {
+    const result = await SUVModel.findByIdAndRemove(req.params.id);
+    res.redirect('/admin/suv');
 });
 
+// GET Saloon Cars
+router.get('/saloon', async function (req, res) {
+    let saloon_models = await SaloonModel.find();
+    res.render("admin/saloon_list", { list: saloon_models, layout: 'layout_list' });
+});
 
+router.get('/addsaloon', (req, res) => {
+    res.render("admin/saloon_form", { layout: false });
+});
 
+router.post('/addsaloon', async function (req, res) {
+    let saloon = new SaloonModel(req.body);
+    result = await saloon.save();
+    res.redirect('/admin/saloon');
+});
 
-
-
+router.get('/deletesaloon/:id', async function (req, res) {
+    const result = await SaloonModel.findByIdAndRemove(req.params.id);
+    res.redirect('/admin/saloon');
+});
 
 // GET Customers
 router.get('/customers', async function (req, res) {
