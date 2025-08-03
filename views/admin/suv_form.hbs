@@ -1,11 +1,11 @@
 <h2>Add SUV Car</h2>
-<form action="/admin/addsuv" method="POST">
+<form action="/admin/addsuv" method="POST" enctype="multipart/form-data">
     <input name="title" placeholder="Title" required>
     <input name="brand" placeholder="Brand" required>
     <input name="year" placeholder="Year" required>
     <input name="price" placeholder="Price" required type="number">
     <input name="fuelType" placeholder="Fuel Type">
-    <input name="imagePath" placeholder="Image Path">
+    <input type="file" name="imageupld" accept="image/*">
     <textarea name="description" placeholder="Description"></textarea>
     <button type="submit">Add SUV</button>
 </form>

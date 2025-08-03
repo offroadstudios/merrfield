@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Raptor SUV",
+    "description": "Rugged off-roader.",
+    "price": 35000,
+    "imagePath": "images/rap.png",
+    "year": 2021,
+    "brand": "Ford",
+    "fuelType": "Gasoline"
+  },
+  {
+    "title": "Mountain SUV",
+    "description": "All-terrain capability.",
+    "price": 40000,
+    "imagePath": "images/je.jpg",
+    "year": 2020,
+    "brand": "Jeep",
+    "fuelType": "Diesel"
+  },
+  {
+    "title": "City SUV",
+    "description": "Comfortable family SUV.",
+    "price": 32000,
+    "imagePath": "images/a1.png",
+    "year": 2019,
+    "brand": "Hyundai",
+    "fuelType": "Gasoline"
+  }
+]

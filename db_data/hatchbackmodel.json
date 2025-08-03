@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Comet Hatch",
+    "description": "Compact city car.",
+    "price": 15000,
+    "imagePath": "images/honda.jpg",
+    "year": 2021,
+    "brand": "Honda",
+    "fuelType": "Gasoline"
+  },
+  {
+    "title": "Eco Hatch",
+    "description": "Efficient hatchback.",
+    "price": 17000,
+    "imagePath": "images/kia.png",
+    "year": 2022,
+    "brand": "Kia",
+    "fuelType": "Hybrid"
+  },
+  {
+    "title": "Swift Hatch",
+    "description": "Stylish and quick.",
+    "price": 19000,
+    "imagePath": "images/fi1.jpg",
+    "year": 2020,
+    "brand": "Suzuki",
+    "fuelType": "Gasoline"
+  }
+]

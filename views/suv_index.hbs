@@ -14,28 +14,28 @@
 
                     <form class="dropdown-menu">
                         <div class="form-check ml-3 my-1">
-                            <input type="radio" class="form-check-input gas" id="under50" name="materialExampleRadios">
+                            <input type="radio" class="form-check-input suv" id="under50" name="materialExampleRadios">
                             <label class="form-check-label card-link-secondary"> Under $50K</label>
                         </div>
 
                         <div class="form-check ml-3 my-1">
-                            <input type="radio" class="form-check-input gas" id="under75" name="materialExampleRadios">
+                            <input type="radio" class="form-check-input suv" id="under75" name="materialExampleRadios">
                             <label class="form-check-label card-link-secondary"> Under $75K</label>
                         </div>
 
                         <div class="form-check ml-3 my-1">
-                            <input type="radio" class="form-check-input gas" id="under100" name="materialExampleRadios">
+                            <input type="radio" class="form-check-input suv" id="under100" name="materialExampleRadios">
                             <label class="form-check-label card-link-secondary"> Under $100K</label>
                         </div>
 
                         <div class="form-check ml-3 my-1">
-                            <input type="radio" class="form-check-input gas" id="under150" name="materialExampleRadios">
+                            <input type="radio" class="form-check-input suv" id="under150" name="materialExampleRadios">
                             <label class="form-check-label card-link-secondary"> Under $150K</label>
                         </div>
 
                         <div class="form-group mx-2 mt-2 mb-0">
                             <label class="mb-0" for="formControlRange">Price</label>
-                            <input type="range" class="form-control-range" max="200" id="formControlRangePriceGas"
+                            <input type="range" class="form-control-range" max="200" id="formControlRangePriceSUV"
                                 onInput="$('#rangeval').html($(this).val()+'K')">
                             <span id="rangeval">100K</span>
                         </div>
@@ -52,29 +52,29 @@
 
                     <div class="dropdown-menu">
                         <div class="custom-control custom-checkbox ml-3 my-1">
-                            <input type="checkbox" class="custom-control-input gas" id="year2021">
+                            <input type="checkbox" class="custom-control-input suv" id="year2021">
                             <label class="custom-control-label" for="year2021">2021</label>
                         </div>
 
                         <div class="custom-control custom-checkbox ml-3 my-1">
-                            <input type="checkbox" class="custom-control-input gas" id="year2020">
+                            <input type="checkbox" class="custom-control-input suv" id="year2020">
                             <label class="custom-control-label" for="year2020">2020</label>
                         </div>
 
                         <div class="custom-control custom-checkbox ml-3 my-1">
-                            <input type="checkbox" class="custom-control-input gas" id="year2019">
+                            <input type="checkbox" class="custom-control-input suv" id="year2019">
                             <label class="custom-control-label" for="year2019">2019</label>
                         </div>
 
                         <div class="custom-control custom-checkbox ml-3 my-1">
-                            <input type="checkbox" class="custom-control-input gas" id="year2018">
+                            <input type="checkbox" class="custom-control-input suv" id="year2018">
                             <label class="custom-control-label" for="year2018">2018</label>
                         </div>
 
                         <div class="form-group mx-2 mt-2 mb-0">
                             <label class="mb-1" for="formControlRange">Year</label>
                             <input type="range" class="form-control-range" min="2015" max="2021"
-                                id="formControlRangeYearGas" onInput="$('#rangevalyear').html($(this).val())">
+                                id="formControlRangeYearSUV" onInput="$('#rangevalyear').html($(this).val())">
                             <span id="rangevalyear">2018</span>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="dropdown-menu">
                         <div class="form-group mx-2 my-2">
                             <label for="formControlRange"> Mileage </label>
-                            <input type="range" class="form-control-range" min="10" max="50" id="formControlRangeGas"
+                            <input type="range" class="form-control-range" min="10" max="50" id="formControlRangeSUV"
                                 onInput="$('#rangevalrange').html($(this).val()+'Mi')">
                             <span id="rangevalrange">25 Mi</span>
                         </div>
@@ -103,35 +103,35 @@
             <div class="col-sm">
                 <div class="dropdown">
                     <button class="btn btn-outline-dark dropdown-toggle bord-wid" type="button"
-                        id="dropdownMenuButtonGas" data-toggle="dropdown"> More </button>
+                        id="dropdownMenuButtonSUV" data-toggle="dropdown"> More </button>
                     <ul class="dropdown-menu px-1">
 
                         <div class="transmission">
                             Transmission<br>
-                            <a href="/gas/filter/?trans=Automatic"><button type="button"
+                            <a href="/suv/filter/?trans=Automatic"><button type="button"
                                     class="btn btn-dark btn-sm">Automatic</button></a>
-                            <a href="/gas/filter/?trans=Manual"><button type="button"
+                            <a href="/suv/filter/?trans=Manual"><button type="button"
                                     class="btn btn-dark btn-sm">Manual</button></a>
                         </div><br>
 
                         <div class="Drivetrain">
                             Drivetrain<br>
-                            <a href="/gas/filter/?drive=FWD"><button type="button"
+                            <a href="/suv/filter/?drive=FWD"><button type="button"
                                     class="btn btn-dark btn-sm">FWD</button></a>
-                            <a href="/gas/filter/?drive=RWD"><button type="button"
+                            <a href="/suv/filter/?drive=RWD"><button type="button"
                                     class="btn btn-dark btn-sm">RWD</button></a>
-                            <a href="/gas/filter/?drive=AWD"><button type="button"
+                            <a href="/suv/filter/?drive=AWD"><button type="button"
                                     class="btn btn-dark btn-sm">AWD</button></a>
 
                         </div><br>
 
                         <div class="Cyl">
                             Cylinders<br>
-                            <a href="/gas/filter/?cyl=4"><button type="button"
+                            <a href="/suv/filter/?cyl=4"><button type="button"
                                     class="btn btn-dark btn-sm">4</button></a>
-                            <a href="/gas/filter/?cyl=6"><button type="button"
+                            <a href="/suv/filter/?cyl=6"><button type="button"
                                     class="btn btn-dark btn-sm">6</button></a>
-                            <a href="/gas/filter/?cyl=8"><button type="button"
+                            <a href="/suv/filter/?cyl=8"><button type="button"
                                     class="btn btn-dark btn-sm">8</button></a>
 
                         </div><br>
@@ -145,17 +145,17 @@
             <div class="col-sm">
                 <div class="dropdown sortby">
                     <button class="btn btn-outline-dark dropdown-toggle bord-wid" type="button"
-                        id="dropdownMenuButtonGas" data-toggle="dropdown"> Sort By </button>
+                        id="dropdownMenuButtonSUV" data-toggle="dropdown"> Sort By </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/gas/filter/?sortBy=latest">Latest Year</a>
+                        <li><a class="dropdown-item" href="/suv/filter/?sortBy=latest">Latest Year</a>
                         </li>
-                        <li><a class="dropdown-item" href="/gas/filter/?sortBy=highprice">Highest Price</a></li>
-                        <li><a class="dropdown-item" href="/gas/filter/?sortBy=lowprice">Lowest Price</a></li>
-                        <li><a class="dropdown-item" href="/gas/filter/?sortBy=highperf">Highest Performance</a>
+                        <li><a class="dropdown-item" href="/suv/filter/?sortBy=highprice">Highest Price</a></li>
+                        <li><a class="dropdown-item" href="/suv/filter/?sortBy=lowprice">Lowest Price</a></li>
+                        <li><a class="dropdown-item" href="/suv/filter/?sortBy=highperf">Highest Performance</a>
                         </li>
-                        <li><a class="dropdown-item" href="/gas/filter/?sortBy=lowperf">Lowest Performance</a></li>
-                        <li><a class="dropdown-item" href="/gas/filter/?sortBy=highrange">Highest Mileage</a></li>
-                        <li><a class="dropdown-item" href="/gas/filter/?sortBy=lowrange">Lowest Mileage</a></li>
+                        <li><a class="dropdown-item" href="/suv/filter/?sortBy=lowperf">Lowest Performance</a></li>
+                        <li><a class="dropdown-item" href="/suv/filter/?sortBy=highrange">Highest Mileage</a></li>
+                        <li><a class="dropdown-item" href="/suv/filter/?sortBy=lowrange">Lowest Mileage</a></li>
                     </ul>
                 </div>
             </div>
@@ -222,9 +222,9 @@
 
                 <div class="info-second">
 
-                    <div class="row info-second-row-gas">
+                    <div class="row info-second-row-suv">
 
-                        <div class="col-sm info-second-col-gas">
+                        <div class="col-sm info-second-col-suv">
                             <ul>
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
@@ -279,7 +279,7 @@
                         </div>
 
 
-                        <div class="col-sm info-second-col-gas">
+                        <div class="col-sm info-second-col-suv">
 
                             <ul>
                                 <li>
@@ -360,4 +360,4 @@
 
 </section>
 
-<script src="/javascripts/gas_cars.js"></script>
+<script src="/javascripts/suv_cars.js"></script>

@@ -3,17 +3,19 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-// Import Mongoose models (correct paths/names inside repo)
+// Import Mongoose models
 const Customer = require('../models/CustomerModel');
-const ElectricCar = require('../models/ElectricModel.js.bak');
-const GasCar = require('../models/GasModel.js.bak');
+const HatchbackCar = require('../models/HatchbackModel');
+const SUVCar = require('../models/SUVModel');
+const SaloonCar = require('../models/SaloonModel');
 const Service = require('../models/ServiceModel');
 const User = require('../models/UserModel');
 
 // Load raw JSON data
 const customerData = require('../db_data/customer.json');
-const electricData = require('../db_data/electricmodel.json');
-const gasData = require('../db_data/gasmodel.json');
+const hatchbackData = require('../db_data/hatchbackmodel.json');
+const suvData = require('../db_data/suvmodel.json');
+const saloonData = require('../db_data/saloonmodel.json');
 const serviceData = require('../db_data/service.json');
 const userData = require('../db_data/user.json');
 
@@ -39,8 +41,9 @@ async function seedAll() {
     console.log('🌱 Connected to DB, starting seeding...');
 
     await seedCollection(Customer, customerData, 'Customers');
-    await seedCollection(ElectricCar, electricData, 'ElectricCars');
-    await seedCollection(GasCar, gasData, 'GasCars');
+    await seedCollection(HatchbackCar, hatchbackData, 'HatchbackCars');
+    await seedCollection(SUVCar, suvData, 'SUVCars');
+    await seedCollection(SaloonCar, saloonData, 'SaloonCars');
     await seedCollection(Service, serviceData, 'Services');
     await seedCollection(User, userData, 'Users');
 
