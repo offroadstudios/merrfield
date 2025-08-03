@@ -1,3 +1,34 @@
+
+[
+  {
+    "title": "Comet Hatch",
+    "description": "Compact city car.",
+    "price": 15000,
+    "imagePath": "images/honda.jpg",
+    "year": 2021,
+    "brand": "Honda",
+    "fuelType": "Gasoline"
+  },
+  {
+    "title": "Eco Hatch",
+    "description": "Efficient hatchback.",
+    "price": 17000,
+    "imagePath": "images/kia.png",
+    "year": 2022,
+    "brand": "Kia",
+    "fuelType": "Hybrid"
+  },
+  {
+    "title": "Swift Hatch",
+    "description": "Stylish and quick.",
+    "price": 19000,
+    "imagePath": "images/fi1.jpg",
+    "year": 2020,
+    "brand": "Suzuki",
+    "fuelType": "Gasoline"
+  }
+]
+=======
 [{
   "_id": {
     "$oid": "5e7c93f06564b1f2a3b796f4"
@@ -159,3 +190,4 @@
   "safety": "Safety is the most important part of the overall Model 3 design. The metal structure is a combination of aluminum and steel, for maximum strength in every area. In a roof-crush test, Model 3 resisted four times its own mass, even with an all-glass roof",
   "rangedesc": "Model 3 is fully electric, so you never need to visit a gas station again. If you charge overnight at home, you can wake up to a full battery every morning. And when you’re on the road, it’s easy to plug in along the way—at any public station or with the Tesla charging network."
 }]
+

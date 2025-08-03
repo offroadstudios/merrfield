@@ -1,3 +1,34 @@
+
+[
+  {
+    "title": "Executive Saloon",
+    "description": "Premium comfort.",
+    "price": 45000,
+    "imagePath": "images/au1.jpg",
+    "year": 2022,
+    "brand": "Audi",
+    "fuelType": "Gasoline"
+  },
+  {
+    "title": "Family Saloon",
+    "description": "Spacious and safe.",
+    "price": 28000,
+    "imagePath": "images/mus.jpg",
+    "year": 2021,
+    "brand": "Toyota",
+    "fuelType": "Hybrid"
+  },
+  {
+    "title": "Luxury Saloon",
+    "description": "High-end interior.",
+    "price": 60000,
+    "imagePath": "images/1.JPG",
+    "year": 2020,
+    "brand": "Mercedes",
+    "fuelType": "Gasoline"
+  }
+]
+=======
 [{
   "_id": {
     "$oid": "5fd9ab94448e728b2ae5c0cf"
@@ -249,3 +280,4 @@
   "safety": "Every Accord features our latest-generation ACETM body structure and standard features that are all designed to help protect everyone. Accord has an impressive history of 5-Star Overall Vehicle Scores with features like anti-lock brakes, forward collision warning, vehicle stability assist.",
   "technology": "The world in a swipe, tap or pinch. The Honda Accord Hybrid offers you an intuitive high definition touchscreen display system. Equipped with a satellite-linked navigation system, an in-built Wifi receiver for internet browsing and infotainment features, it lets you get to your destination in one smooth drive."
 }]
+
