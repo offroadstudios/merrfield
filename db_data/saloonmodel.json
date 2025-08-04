@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Executive Saloon",
+    "description": "Premium comfort.",
+    "price": 45000,
+    "imagePath": "images/au1.jpg",
+    "year": 2022,
+    "brand": "Audi",
+    "fuelType": "Gasoline"
+  },
+  {
+    "title": "Family Saloon",
+    "description": "Spacious and safe.",
+    "price": 28000,
+    "imagePath": "images/mus.jpg",
+    "year": 2021,
+    "brand": "Toyota",
+    "fuelType": "Hybrid"
+  },
+  {
+    "title": "Luxury Saloon",
+    "description": "High-end interior.",
+    "price": 60000,
+    "imagePath": "images/1.JPG",
+    "year": 2020,
+    "brand": "Mercedes",
+    "fuelType": "Gasoline"
+  }
+]

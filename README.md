@@ -49,17 +49,17 @@
 </div>
 
 <div>
-    <h4>Electric Models</h4>
-    <img width="600px" src="docs/assets/electric_filters.gif" alt="Electric Index" />
-    <h4>Electric Models Booking</h4>
-    <img width="600px" src="docs/assets/electric_booking.png" alt="Electric Index" />
+    <h4>Hatchback Models</h4>
+    <img width="600px" src="docs/assets/electric_filters.gif" alt="Hatchback Index" />
+    <h4>Hatchback Models Booking</h4>
+    <img width="600px" src="docs/assets/electric_booking.png" alt="Hatchback Index" />
 </div>    
 
 <div>
-    <h4>Gas Models</h4>
-    <img width="600px" src="docs/assets/gas_filtering.gif" alt="Gas Index" />
-    <h4>Gas Models Booking</h4>
-    <img width="600px" src="docs/assets/gas_booking.png" alt="Gas Index" />
+    <h4>SUV Models</h4>
+    <img width="600px" src="docs/assets/gas_filtering.gif" alt="SUV Index" />
+    <h4>SUV Models Booking</h4>
+    <img width="600px" src="docs/assets/gas_booking.png" alt="SUV Index" />
 
 </div>
 <br>
@@ -69,13 +69,13 @@
 
 ##  📱 Mobile Responsive
 <div>
-    <h4>Electric</h4>
+    <h4>Hatchback</h4>
     <img height="350px" width="175px" src="docs/mobile/mob_ele1.png" alt="Elec Mob" /> <img height="350px" width="175px" src="docs/mobile/mob_ele2.png" alt="Elec Mob" /> <img height="350px" width="175px" src="docs/mobile/mob_ele_bk.png" alt="Elec Mob" /> <img height="350px" width="175px" src="docs/mobile/mob_ele_bki.png" alt="Elec Mob" /> 
 </div>
 
 <div>
-    <h4>Gas</h4>
-    <img height="350px" width="175px" src="docs/mobile/mob_gas1.png" alt="Gas Mob" /> <img height="350px" width="175px" src="docs/mobile/mob_gas2.png" alt="Gas Mob" /> <img height="350px" width="175px" src="docs/mobile/mod_gas_bk.png" alt="Gas Mob" /> <img height="350px" width="175px" src="docs/mobile/mob_gas_bki.png" alt="Gas Mob" /> 
+    <h4>SUV</h4>
+    <img height="350px" width="175px" src="docs/mobile/mob_gas1.png" alt="SUV Mob" /> <img height="350px" width="175px" src="docs/mobile/mob_gas2.png" alt="SUV Mob" /> <img height="350px" width="175px" src="docs/mobile/mod_gas_bk.png" alt="SUV Mob" /> <img height="350px" width="175px" src="docs/mobile/mob_gas_bki.png" alt="SUV Mob" /> 
 </div>
 
 ### 🛡️ Admin End
@@ -104,11 +104,11 @@
 ├── models (MongoDB Mongoose Models)
 ├── node_modules 
 ├── public (application resources - css, js, images)
-├── routes (handles admin, electric and gas routes)
+├── routes (handles admin, hatchback, suv and saloon routes)
 ├── views  (express-handlebars templates)
     ├── admin (admin templates)
     ├── layouts (default layout templates)
-    └── electric and gas template files
+    └── hatchback, suv and saloon template files
 ├── app.js (root Node app script)
 ├── package.json
 └── README.md
