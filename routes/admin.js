@@ -38,11 +38,11 @@ router.post("/login", async function (req, res) {
         let pass = req.body.password;
         console.log(pass);
 
-        let user = await UserModel.findOne({ userID: "admin" });
+        let user = await UserModel.findOne({ userID: id });
         console.log(user);
         if (user && pass === user.password) {
             console.log("Login Success");
-            res.redirect("home");
+            res.redirect("/admin/admin_index");
         } else {
             res.redirect("login_error");
         }
