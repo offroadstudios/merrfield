@@ -225,7 +225,11 @@ Our site is designed to make the car‑shopping journey simple and engaging. Bro
             e.preventDefault();
             e.stopPropagation();
             $(this).next('.dropdown-menu').toggleClass('show');
+        $('#navbarResponsive .nav-link').on('click', function () {
+          if (!$(this).hasClass('dropdown-toggle')) {
+            $('#navbarResponsive').collapse('hide');
           }
+          $('#navbarResponsive').collapse('hide');
         });
 
         // Ensure submenu closes when the main menu collapses
