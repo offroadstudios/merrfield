@@ -8,4 +8,3 @@ const customerModelSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("customer", customerModelSchema, "customer");
 
-gUDZsUUExBGa4Jvv
