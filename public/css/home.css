@@ -26,21 +26,12 @@ body {
   font-size: 0.9rem;
 }
 
-/* Logo scaling for very small devices */
 @media (max-width: 576px) {
-  #l1 {
-    width: 120px;
-  }
+  #l1 { width: 120px; }
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
-  /* Hide video on mobile */
-  #myVideo {
-    display: none;
-  }
-
-  /* Set a fallback background image for mobile */
+  #myVideo { display: none; }
   body {
     background-image: url('/images/admin.JPG');
     background-size: cover;
@@ -48,23 +39,16 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
   }
-
-  /* Make the collapsed navbar fill the full width */
-  #navbarResponsive {
-    width: 100%;
-  }
-
+  #navbarResponsive { width: 100vw; }
   #navbarResponsive .navbar-nav {
     width: 100%;
     text-align: center;
   }
-
   #navbarResponsive .navbar-nav .nav-item {
     width: 100%;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-
   #navbarResponsive .navbar-nav .nav-link {
     display: block;
     width: 100%;
@@ -72,68 +56,35 @@ body {
   }
 }
 
-/* Logo styling */
 #l1 {
   width: 150px;
   height: auto;
   display: block;
-  margin-top: 20px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.14));
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.14));
   opacity: 0.88;
-  background: rgba(18, 18, 18, 0.33);
+  background: rgba(18,18,18, 0.33);
   border-radius: 16px;
   padding: 8px 18px;
 }
 
-/* Paragraph line spacing */
-p {
-  line-height: 1.75;
-}
+p { line-height: 1.75; }
 
-/* Section padding for medium and up */
 @media (min-width: 768px) {
-  section {
-    padding: 150px 0;
-  }
+  section { padding: 150px 0; }
 }
 
-/* Text selection colours */
-::-moz-selection {
-  background: #fed136;
-  text-shadow: none;
-}
+::-moz-selection, ::selection { background: #fed136; text-shadow: none; }
+img::-moz-selection, img::selection { background: 0 0; }
 
-::selection {
-  background: #fed136;
-  text-shadow: none;
-}
-
-img::-moz-selection {
-  background: 0 0;
-}
-
-img::selection {
-  background: 0 0;
-}
-
-img::-moz-selection {
-  background: 0 0;
-}
-
-/* Button styling */
 .btn {
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
 }
+.btn-xl { font-size: 18px; padding: 20px 40px; }
 
-.btn-xl {
-  font-size: 18px;
-  padding: 20px 40px;
-}
-
-/* Navigation link styling */
 #mainNav .navbar-nav .nav-item .nav-link {
   font-size: 100%;
   font-weight: 800;
@@ -145,62 +96,40 @@ img::-moz-selection {
     "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* Navbar styling for large screens */
 @media (min-width: 992px) {
   #mainNav {
-
-     z-index: 1050 !important;
-  position: relative;
+    z-index: 1050 !important;
+    position: relative;
     padding-top: 25px;
     padding-bottom: 25px;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
     background-color: transparent;
   }
-
-  #mainNav .navbar-brand {
-    font-size: 2.75em;
-    transition: all 0.3s;
-  }
-
-  #mainNav .navbar-nav .nav-item .nav-link {
-    padding: 1.1em 1em !important;
-  }
-
-  #mainNav.navbar-shrink {
-    padding-top: 0;
-    padding-bottom: 0;
-    /* background-color: #ffffff */
-  }
-
-  #mainNav.navbar-shrink .navbar-brand {
-    font-size: 1.25rem;
-    padding: 12px;
-  }
+  #mainNav .navbar-brand { font-size: 2.75em; transition: all 0.3s; }
+  #mainNav .navbar-nav .nav-item .nav-link { padding: 1.1em 1em !important; }
+  #mainNav.navbar-shrink { padding-top: 0; padding-bottom: 0; }
+  #mainNav.navbar-shrink .navbar-brand { font-size: 1.25rem; padding: 12px; }
 }
 
 /* Enlarge the mobile menu toggle and its icon */
 .navbar-toggler {
-    cursor: pointer !important;
-
+  cursor: pointer !important;
   font-size: 1.5rem;
   padding: 0.75rem 1rem;
 }
-
 .navbar-toggler .fa-bars {
   font-size: 1.5rem;
   margin-left: 0.25rem;
 }
 
-#mobileHero {
-  pointer-events: none !important;
-}
+/* Full-width dark buttons on mobile */
 @media (max-width: 768px) {
-  /* Increase the size of dark buttons on mobile */
   .btn.btn-dark {
-    width: 100%;          /* full‑width button */
-    font-size: 1.3rem;    /* larger text */
-    padding: 1rem 1.5rem; /* more padding */
-    margin-bottom: 0.5rem;/* space between stacked buttons */
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
     border-radius: 0.4rem;
-  }}
+  }
+}
