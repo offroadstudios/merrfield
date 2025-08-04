@@ -28,7 +28,7 @@
     "fuelType": "Gasoline"
   }
 ]
-=======
+
 [{
   "_id": {
     "$oid": "5fd9ab94448e728b2ae5c0cf"
@@ -280,4 +280,5 @@
   "safety": "Every Accord features our latest-generation ACETM body structure and standard features that are all designed to help protect everyone. Accord has an impressive history of 5-Star Overall Vehicle Scores with features like anti-lock brakes, forward collision warning, vehicle stability assist.",
   "technology": "The world in a swipe, tap or pinch. The Honda Accord Hybrid offers you an intuitive high definition touchscreen display system. Equipped with a satellite-linked navigation system, an in-built Wifi receiver for internet browsing and infotainment features, it lets you get to your destination in one smooth drive."
 }]
+
 
