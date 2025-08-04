@@ -1,43 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Autorizz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap and icons -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/86198f839e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet">
+    <!-- Footer stylesheet -->
+    <link rel="stylesheet" href="/css/footer.css">
+    <!-- Custom styles -->
+    <link rel="icon" href="/images/auto_favi.ico" type="image/x-icon">
+    <link href="/css/home.css" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Custom modal styling -->
+    <style>
+        /* Apply rounded corners and a car background image to both modals */
+        #aboutModal .modal-content,
+        #contactModal .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            background: url("/images/2.jpg") center/cover no-repeat;
+            border: none;
+            color: #fff;
+        }
 
-    <!-- Custom styles for this template -->
-    <link rel="icon" href="/images/auto_favi.ico" type="image/x-icon" />
-    <link href="/css/home.css" rel="stylesheet" />
+        /* Dark overlay inside the modal for readability */
+        #aboutModal .modal-body,
+        #contactModal .modal-body,
+        #aboutModal .modal-header,
+        #contactModal .modal-header {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Round the bottom corners of the overlay to match modal */
+        #aboutModal .modal-body,
+        #contactModal .modal-body {
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        /* Style the close button to be white */
+        #aboutModal .close,
+        #contactModal .close {
+            color: #fff;
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="home"><img id="l1" src="/images/t1.png"
-                    alt="Autorizz" /></a>
+            <a class="navbar-brand js-scroll-trigger" href="home">
+                <img id="l1" src="/images/t1.png" alt="Autorizz">
+            </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="carsDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Cars</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="carsDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cars</a>
                         <div class="dropdown-menu" aria-labelledby="carsDropdown">
                             <a class="dropdown-item" href="/suv">SUV</a>
                             <a class="dropdown-item" href="/hatchback">Hatchback</a>
@@ -53,19 +90,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contact</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Background video -->
     <video autoplay muted loop playsinline id="myVideo">
-        <source src="images/tesla.mp4" type="video/mp4" />
+        <source src="images/tesla.mp4" type="video/mp4">
     </video>
 
     <!-- About Modal -->
@@ -79,7 +111,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>We are passionate about connecting drivers with the perfect ride.</p>
+
+                    <h1>Merryfield Trading Ltd </h1>
+
+                    <p>Merryfield Trading Ltd is more than just a car dealership — it’s a gateway to your next driving adventure. Established with a passion for connecting drivers with vehicles that fit their lifestyle, we offer a curated selection of SUVs, hatchbacks and saloons from leading manufacturers, alongside a range of genuine accessories to personalise your ride.
+
+Our site is designed to make the car‑shopping journey simple and engaging. Browse our inventory through an intuitive Cars menu, filter by model or price, and dive into detailed booking pages with high‑resolution images, specs and performance highlights. .</p>
                 </div>
             </div>
         </div>
@@ -113,66 +150,13 @@
                 </div>
             </div>
         </div>
-
-    <!-- Contact Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Contact Us</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="contactName">Name</label>
-                            <input type="text" class="form-control" id="contactName" placeholder="Your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="contactEmail">Email</label>
-                            <input type="email" class="form-control" id="contactEmail" placeholder="name@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="contactMsg">Message</label>
-                            <textarea class="form-control" id="contactMsg" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    <div style="padding-left: 350px;padding-bottom: 175px;" class="content">
-          <a href="/suv">
-              <button id="b1" style="margin:24px;" type="button" class="btn btn-outline-light">SUV</button>
-          </a>
-
-          <a href="/hatchback">
-              <button id="b1" style="margin:24px;" type="button" class="btn btn-outline-light">Hatchback</button>
-          </a>
-
-          <a href="/saloon">
-              <button id="b1" style="margin:24px;" type="button" class="btn btn-outline-light">Saloon</button>
-          </a>
-        <a href="/">
-            <button id="b1" style="margin:24px;" type="button" class="btn btn-outline-light">Accessories</button>
-        </a>
-
     </div>
 
-    <footer class="footer text-center">
-        <span>© Offroad Studios</span>
-    </footer>
+    <footer class="copyright-footer">© Offroad Studios</footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
-        integrity="sha384-6khuMg9w8YdGtKf1DfK9i9UJOvgmR+8abtTE1pi6jizo4hAC9i+Y8ly48FZJ8aBS"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-…"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-…"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-…"></script>
 </body>
-
 </html>
