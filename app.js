@@ -53,6 +53,7 @@ console.log('App is starting…');
 
 /* Routes */
 app.get('/', (req, res) => res.redirect('/home'));
+app.get('/login', (req, res) => res.redirect('/admin'));
 
 app.get('/home', (req, res) =>
   res.sendFile(path.join(__dirname, 'routes', 'home.html'))

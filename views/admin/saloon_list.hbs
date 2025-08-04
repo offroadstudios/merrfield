@@ -1,0 +1,10 @@
+<h2>All Saloon Cars</h2>
+<a href="/admin/addsaloon">Add New Saloon</a>
+<ul>
+{{#each list}}
+    <li>
+        <strong>{{title}}</strong> - {{brand}} ({{year}}) - ${{price}}
+        <a href="/admin/deletesaloon/{{_id}}">Delete</a>
+    </li>
+{{/each}}
+</ul>

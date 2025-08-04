@@ -42,7 +42,7 @@ router.post("/login", async function (req, res) {
         console.log(user);
         if (user && pass === user.password) {
             console.log("Login Success");
-            res.redirect("home");
+            res.redirect("admin_index");
         } else {
             res.redirect("login_error");
         }

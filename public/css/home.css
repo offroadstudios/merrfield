@@ -14,7 +14,6 @@ body {
   object-fit: cover;
   z-index: -1;
   pointer-events: none;
-
 }
 
 .footer {
@@ -27,41 +26,78 @@ body {
   font-size: 0.9rem;
 }
 
+/* Logo scaling for very small devices */
 @media (max-width: 576px) {
   #l1 {
     width: 120px;
   }
 }
 
+/* Mobile styles */
 @media (max-width: 768px) {
+  /* Hide video on mobile */
   #myVideo {
     display: none;
   }
 
+  /* Set a fallback background image for mobile */
+  body {
+    background-image: url('/images/admin.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  /* Make the collapsed navbar fill the full width */
+  #navbarResponsive {
+    width: 100%;
+  }
+
+  #navbarResponsive .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  #navbarResponsive .navbar-nav .nav-item {
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #navbarResponsive .navbar-nav .nav-link {
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+  }
 }
 
+/* Logo styling */
 #l1 {
-  width: 150px;        /* Set width as needed (try 320–400px for big headers) */
-  height: auto;        /* Maintain aspect ratio */
-  display: block;      /* Remove extra inline space */
-  margin-top: 20px;    /* Space from top if needed */
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.14)); /* Subtle shadow for visibility */
-  opacity: 0.88;       /* A little translucency */
-    background: rgba(18,18,18, 0.33);  /* Soft dark translucent bg */
-  border-radius: 16px;               /* Rounded corners */
-  padding: 8px 18px;                 /* Space around the logo */
+  width: 150px;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.14));
+  opacity: 0.88;
+  background: rgba(18, 18, 18, 0.33);
+  border-radius: 16px;
+  padding: 8px 18px;
 }
 
+/* Paragraph line spacing */
 p {
   line-height: 1.75;
 }
 
+/* Section padding for medium and up */
 @media (min-width: 768px) {
   section {
     padding: 150px 0;
   }
 }
 
+/* Text selection colours */
 ::-moz-selection {
   background: #fed136;
   text-shadow: none;
@@ -84,6 +120,7 @@ img::-moz-selection {
   background: 0 0;
 }
 
+/* Button styling */
 .btn {
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -96,6 +133,7 @@ img::-moz-selection {
   padding: 20px 40px;
 }
 
+/* Navigation link styling */
 #mainNav .navbar-nav .nav-item .nav-link {
   font-size: 100%;
   font-weight: 800;
@@ -107,6 +145,7 @@ img::-moz-selection {
     "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* Navbar styling for large screens */
 @media (min-width: 992px) {
   #mainNav {
     padding-top: 25px;
@@ -136,3 +175,23 @@ img::-moz-selection {
     padding: 12px;
   }
 }
+
+/* Enlarge the mobile menu toggle and its icon */
+.navbar-toggler {
+  font-size: 1.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.navbar-toggler .fa-bars {
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+}
+@media (max-width: 768px) {
+  /* Increase the size of dark buttons on mobile */
+  .btn.btn-dark {
+    width: 100%;          /* full‑width button */
+    font-size: 1.3rem;    /* larger text */
+    padding: 1rem 1.5rem; /* more padding */
+    margin-bottom: 0.5rem;/* space between stacked buttons */
+    border-radius: 0.4rem;
+  }}
