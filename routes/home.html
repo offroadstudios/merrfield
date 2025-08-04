@@ -206,11 +206,35 @@ Our site is designed to make the car‑shopping journey simple and engaging. Bro
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script>
       $(function () {
+        var $nav = $('#navbarResponsive');
+        var $cars = $('#carsDropdown');
+
+        // Collapse menu when a regular link or dropdown item is chosen
+        $nav.on('click', '.nav-link', function () {
+          if (!$(this).hasClass('dropdown-toggle')) {
+            $nav.collapse('hide');
+          }
+        });
+        $nav.on('click', '.dropdown-item', function () {
+          $nav.collapse('hide');
+        });
+
+        // Toggle Cars submenu without closing the mobile overlay
+        $cars.on('click', function (e) {
+          if ($nav.hasClass('show')) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).next('.dropdown-menu').toggleClass('show');
         $('#navbarResponsive .nav-link').on('click', function () {
           if (!$(this).hasClass('dropdown-toggle')) {
             $('#navbarResponsive').collapse('hide');
           }
           $('#navbarResponsive').collapse('hide');
+        });
+
+        // Ensure submenu closes when the main menu collapses
+        $nav.on('hide.bs.collapse', function () {
+          $cars.next('.dropdown-menu').removeClass('show');
         });
       });
     </script>
