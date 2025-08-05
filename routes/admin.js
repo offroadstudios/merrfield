@@ -42,7 +42,7 @@ router.post("/login", async function (req, res) {
         console.log(user);
         if (user && pass === user.password) {
             console.log("Login Success");
-            res.redirect("/admin/admin_index");
+            res.redirect("/admin/hatchback");
         } else {
             res.redirect("login_error");
         }
