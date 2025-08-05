@@ -57,6 +57,11 @@ router.get('/home', function (req, res) {
     res.sendFile(__dirname + "/admin_home.html");
 });
 
+// GET Admin logout
+router.get('/logout', function (req, res) {
+    res.redirect('/admin');
+});
+
 // GET Service Page
 router.get('/service', async function (req, res) {
     try {
