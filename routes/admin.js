@@ -42,7 +42,7 @@ router.post("/login", async function (req, res) {
         console.log(user);
         if (user && pass === user.password) {
             console.log("Login Success");
-            res.redirect("/admin/admin_index");
+            res.redirect("/admin/hatchback");
         } else {
             res.redirect("login_error");
         }
@@ -55,6 +55,11 @@ router.post("/login", async function (req, res) {
 // GET - Home Page
 router.get('/home', function (req, res) {
     res.sendFile(__dirname + "/admin_home.html");
+});
+
+// GET Admin logout
+router.get('/logout', function (req, res) {
+    res.redirect('/admin');
 });
 
 // GET Service Page

@@ -24,6 +24,10 @@ img {
 }
 
 .record_list {
-    width: 240%;
-    margin: 2rem 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.navbar .btn {
+    margin-left: 0.5rem;
 }
