@@ -176,6 +176,9 @@ img::-moz-selection, img::selection { background: 0 0; }
 /* WhatsApp floating button */
 .whatsapp-float {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60px;
     height: 60px;
     bottom: 40px;
@@ -190,5 +193,6 @@ img::-moz-selection, img::selection { background: 0 0; }
 }
 
 .whatsapp-icon {
+    margin-top: 0;
     margin-top: 16px;
 }
