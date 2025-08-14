@@ -1,0 +1,28 @@
+/* WhatsApp floating action button */
+.wa-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,.2);
+  z-index: 9999;               /* above video/nav */
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.wa-fab svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  fill: #fff;
+}
+.wa-fab:active { transform: scale(0.98); }
+@media (max-width: 640px) {
+  .wa-fab { right: 16px; bottom: 16px; }
+}
