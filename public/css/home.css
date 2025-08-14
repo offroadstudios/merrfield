@@ -179,6 +179,16 @@ img::-moz-selection, img::selection { background: 0 0; }
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 70px;
+    height: 70px;
+    bottom: 80px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    font-size: 40px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1100;
     width: 60px;
     height: 60px;
     bottom: 40px;
