@@ -253,7 +253,7 @@ p{
     border-radius: 25px;
     border-width: 2.5px;
 }
-  
+
 #b1:hover {
     height: 40px;
     width: 130px;
@@ -262,5 +262,27 @@ p{
     color: white;
     border-radius: 25px;
     border-width: 2.5px;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    bottom: 80px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    font-size: 40px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1100;
+}
+
+.whatsapp-icon {
+    margin-top: 0;
 }
 

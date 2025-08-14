@@ -173,3 +173,24 @@ img::-moz-selection, img::selection { background: 0 0; }
     border-radius: 0.4rem;
   }
 }
+/* WhatsApp floating button */
+.whatsapp-float {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    bottom: 80px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    font-size: 40px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1100;
+}
+
+.whatsapp-icon {
+    margin-top: 0;
+}

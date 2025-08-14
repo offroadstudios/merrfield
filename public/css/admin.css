@@ -24,6 +24,32 @@ img {
 }
 
 .record_list {
-    width: 240%;
-    margin: 2rem 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.navbar .btn {
+    margin-left: 0.5rem;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    bottom: 80px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    font-size: 40px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1100;
+}
+
+.whatsapp-icon {
+    margin-top: 0;
 }
