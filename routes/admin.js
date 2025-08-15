@@ -133,6 +133,39 @@ router.post('/addhatchback', upload, async function (req, res) {
     }
 });
 
+// Edit Hatchback Car Form
+router.get('/edithatchback/:id', async function (req, res) {
+    try {
+        let hatchback = await HatchbackModel.findById(req.params.id);
+        res.render("admin/hatchback_edit", { car: hatchback, layout: false });
+    } catch (err) {
+        console.error('Error loading hatchback:', err);
+        res.status(500).send('Failed to load hatchback.');
+    }
+});
+
+// Update Hatchback Car
+router.post('/edithatchback/:id', upload, async function (req, res) {
+    try {
+        let updateData = {
+            title: req.body.title,
+            brand: req.body.brand,
+            year: req.body.year,
+            price: req.body.price,
+            fuelType: req.body.fuelType,
+            description: req.body.description
+        };
+        if (req.file) {
+            updateData.imagePath = 'images/' + req.file.originalname;
+        }
+        await HatchbackModel.findByIdAndUpdate(req.params.id, updateData);
+        res.redirect('/admin/hatchback');
+    } catch (err) {
+        console.error('Error updating hatchback:', err);
+        res.status(500).send('Failed to update hatchback.');
+    }
+});
+
 // Delete Hatchback
 router.get('/deletehatchback/:id', async function (req, res) {
     try {
@@ -179,6 +212,39 @@ router.post('/addsuv', upload, async function (req, res) {
     }
 });
 
+// Edit SUV Car Form
+router.get('/editsuv/:id', async function (req, res) {
+    try {
+        let suv = await SUVModel.findById(req.params.id);
+        res.render("admin/suv_edit", { car: suv, layout: false });
+    } catch (err) {
+        console.error('Error loading SUV:', err);
+        res.status(500).send('Failed to load SUV.');
+    }
+});
+
+// Update SUV Car
+router.post('/editsuv/:id', upload, async function (req, res) {
+    try {
+        let updateData = {
+            title: req.body.title,
+            brand: req.body.brand,
+            year: req.body.year,
+            price: req.body.price,
+            fuelType: req.body.fuelType,
+            description: req.body.description
+        };
+        if (req.file) {
+            updateData.imagePath = 'images/' + req.file.originalname;
+        }
+        await SUVModel.findByIdAndUpdate(req.params.id, updateData);
+        res.redirect('/admin/suv');
+    } catch (err) {
+        console.error('Error updating SUV:', err);
+        res.status(500).send('Failed to update SUV.');
+    }
+});
+
 // Delete SUV
 router.get('/deletesuv/:id', async function (req, res) {
     try {
@@ -222,6 +288,39 @@ router.post('/addsaloon', upload, async function (req, res) {
     } catch (err) {
         console.error('Error adding saloon:', err);
         res.status(500).send('Failed to add saloon.');
+    }
+});
+
+// Edit Saloon Car Form
+router.get('/editsaloon/:id', async function (req, res) {
+    try {
+        let saloon = await SaloonModel.findById(req.params.id);
+        res.render("admin/saloon_edit", { car: saloon, layout: false });
+    } catch (err) {
+        console.error('Error loading saloon:', err);
+        res.status(500).send('Failed to load saloon.');
+    }
+});
+
+// Update Saloon Car
+router.post('/editsaloon/:id', upload, async function (req, res) {
+    try {
+        let updateData = {
+            title: req.body.title,
+            brand: req.body.brand,
+            year: req.body.year,
+            price: req.body.price,
+            fuelType: req.body.fuelType,
+            description: req.body.description
+        };
+        if (req.file) {
+            updateData.imagePath = 'images/' + req.file.originalname;
+        }
+        await SaloonModel.findByIdAndUpdate(req.params.id, updateData);
+        res.redirect('/admin/saloon');
+    } catch (err) {
+        console.error('Error updating saloon:', err);
+        res.status(500).send('Failed to update saloon.');
     }
 });
 
