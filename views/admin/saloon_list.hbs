@@ -3,7 +3,10 @@
 {{#each list}}
     <li class="list-group-item d-flex justify-content-between align-items-center">
         <span><strong>{{title}}</strong> - {{brand}} ({{year}}) - ${{price}}</span>
-        <a class="btn btn-sm btn-danger" href="/admin/deletesaloon/{{_id}}">Delete</a>
+        <span>
+            <a class="btn btn-sm btn-secondary mr-2" href="/admin/editsaloon/{{_id}}">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/admin/deletesaloon/{{_id}}">Delete</a>
+        </span>
     </li>
 {{/each}}
 </ul>
