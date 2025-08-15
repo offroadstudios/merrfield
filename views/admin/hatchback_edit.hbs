@@ -1,0 +1,13 @@
+<h2>Edit Hatchback Car</h2>
+<form action="/admin/edithatchback/{{car._id}}" method="POST" enctype="multipart/form-data">
+    <input name="title" placeholder="Title" value="{{car.title}}" required>
+    <input name="brand" placeholder="Brand" value="{{car.brand}}" required>
+    <input name="year" placeholder="Year" value="{{car.year}}" required>
+    <input name="price" placeholder="Price" type="number" value="{{car.price}}" required>
+    <input name="fuelType" placeholder="Fuel Type" value="{{car.fuelType}}">
+    <input type="file" name="imageupld" accept="image/*">
+    <textarea name="description" placeholder="Description">{{car.description}}</textarea>
+    <button type="submit">Update Hatchback</button>
+</form>
+<a href="/admin/hatchback">Back to Hatchback List</a>
+

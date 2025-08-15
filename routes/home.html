@@ -199,6 +199,30 @@ Our site is designed to make the car‑shopping journey simple and engaging. Bro
         </div>
     </div>
 
+    <!-- Location Modal -->
+    <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Our Location</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-0">
+                    <iframe
+                      src="https://www.google.com/maps?q=16a+Canada+Road+Slough+Buckinghamshire+SL1+1SE&output=embed"
+                      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="location-float" data-toggle="modal" data-target="#locationModal" aria-label="Location">
+        <i class="fas fa-map-marker-alt location-icon"></i>
+    </a>
+
     <a href="https://wa.me/447881235770" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp whatsapp-icon"></i>
     </a>
@@ -229,11 +253,7 @@ Our site is designed to make the car‑shopping journey simple and engaging. Bro
             e.preventDefault();
             e.stopPropagation();
             $(this).next('.dropdown-menu').toggleClass('show');
-        $('#navbarResponsive .nav-link').on('click', function () {
-          if (!$(this).hasClass('dropdown-toggle')) {
-            $('#navbarResponsive').collapse('hide');
           }
-          $('#navbarResponsive').collapse('hide');
         });
 
         // Ensure submenu closes when the main menu collapses

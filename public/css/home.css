@@ -206,3 +206,26 @@ img::-moz-selection, img::selection { background: 0 0; }
     margin-top: 0;
     margin-top: 16px;
 }
+
+/* Location floating button */
+.location-float {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    left: 40px;
+    background-color: #e74c3c;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+}
+
+.location-icon {
+    margin-top: 16px;
+}
