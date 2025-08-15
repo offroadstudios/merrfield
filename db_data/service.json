@@ -9,7 +9,7 @@
   "customerModel": "2020 Tesla Model S Performance Edition",
   "customerType": "Washing Service",
   "customerDone": "Yes",
-  "customerBill": "$75",
+  "customerBill": "£75",
   "Date": "18/02/2020"
 },{
   "_id": {
@@ -22,7 +22,7 @@
   "customerModel": "2019 Tesla Model 3 Standard Plus",
   "customerType": "Battery Check",
   "customerDone": "Yes",
-  "customerBill": "$125",
+  "customerBill": "£125",
   "Date": "22/02/2020"
 },{
   "_id": {
@@ -35,6 +35,6 @@
   "customerModel": "2019 Tesla Model X Standard Plus",
   "customerType": "Air Condition Service",
   "customerDone": "Yes",
-  "customerBill": "$300",
+  "customerBill": "£300",
   "Date": "03/02/2020"
 }]

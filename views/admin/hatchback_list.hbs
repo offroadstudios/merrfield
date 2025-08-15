@@ -2,6 +2,7 @@
 <ul class="list-group">
 {{#each list}}
     <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span><strong>{{title}}</strong> - {{brand}} ({{year}}) - £{{price}}</span>
         <span><strong>{{title}}</strong> - {{brand}} ({{year}}) - ${{price}}</span>
         <span>
             <a class="btn btn-sm btn-secondary mr-2" href="/admin/edithatchback/{{_id}}">Edit</a>
