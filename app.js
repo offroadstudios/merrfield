@@ -9,8 +9,11 @@ const compression     = require('compression');
 const suvRouter       = require('./routes/suv_index');
 const hatchbackRouter = require('./routes/hatchback_index');
 const saloonRouter    = require('./routes/saloon_index');
+const vehiclesRouter  = require('./routes/vehicles');
+const carsRouter      = require('./routes/cars');
 const adminRouter     = require('./routes/admin');
 const UserModel       = require('./models/CustomerModel');
+const AutoSyncService = require('./utils/autoSyncService');
 
 const app = express();
 
@@ -23,6 +26,11 @@ const app = express();
       useFindAndModify: false
     });
     console.log('MongoDB connected');
+    
+    // Initialize auto-sync service
+    const autoSyncService = new AutoSyncService();
+    await autoSyncService.initialize();
+    console.log('Auto-sync service started');
   } catch (err) {
     console.error('MongoDB Error: Failed to connect');
     console.error(err);
@@ -79,6 +87,8 @@ app.get('/loginerror', (req, res, next) => {
 });
 
 app.use('/admin', adminRouter);
+app.use('/vehicles', vehiclesRouter);
+app.use('/cars', carsRouter);
 app.use('/suv', suvRouter);
 app.use('/hatchback', hatchbackRouter);
 app.use('/saloon', saloonRouter);

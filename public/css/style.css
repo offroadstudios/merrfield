@@ -3,28 +3,31 @@
 } */
 
 
-/* Navigation */
+/* Navigation - Ultra Compact */
 #navigation{
     background-color: #232425;
     padding: 0px;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
+    min-height: 50px;
 }
 
 #nav-container{
-    padding: 0.7% 5%;
+    padding: 0.1% 2%;
 }
 
 .navbar-brand{
     font-family: 'Russo One', sans-serif !important;
-    font-size: 1.8rem !important;
+    font-size: 1rem !important;
     /* font-weight: bold; */
 }
 
 .nav-catg{
-    padding: 0 1rem;
+    padding: 0.2rem 0.6rem;
     border: #eeeff1 solid;
     border-width: 1px;
-    border-radius: 2rem;
+    border-radius: 1.2rem;
+    margin: 0 0.1rem;
+    font-size: 0.8rem;
 }
 
 .nav-catg.active{
@@ -43,7 +46,7 @@
 }
 
 .navbar-brand img{
-    height: 2rem;
+    height: 1.2rem;
 }
 
 .nav-catg:hover{

@@ -1,0 +1,294 @@
+/* New Cars Page Styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+.navbar {
+    background: linear-gradient(135deg, #2c3e50, #34495e) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+/* Main Content - Force override any conflicting styles */
+.main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-height: calc(100vh - 80px);
+}
+
+/* Override any global body styles that might affect spacing */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure no extra spacing from any parent elements */
+.container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+
+/* Filters Section */
+.filters-section {
+    background: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    margin-top: 0 !important;
+    padding-top: 1.5rem !important;
+}
+
+.filters-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+}
+
+.filters-card h5 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.filters-card h5 i {
+    margin-right: 8px;
+    color: #667eea;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-select {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* Cars Grid */
+.cars-section {
+    padding: 2rem 0;
+}
+
+#resultsCount {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.sort-options .form-select {
+    width: auto;
+    min-width: 200px;
+}
+
+/* Car Cards */
+.car-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    border: none;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.car-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.car-card:hover .car-image {
+    transform: scale(1.05);
+}
+
+.car-price {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.car-body {
+    padding: 1.5rem;
+}
+
+.car-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.car-subtitle {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.car-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.spec-item i {
+    margin-right: 0.5rem;
+    color: #667eea;
+    width: 16px;
+}
+
+.car-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-view {
+    background: #667eea;
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-view:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    border: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background: #20c55a;
+    transform: translateY(-2px);
+}
+
+/* Load More Button */
+#loadMoreBtn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#loadMoreBtn:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    margin-top: 4rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+}
+
+.spinner-border {
+    color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filters-card {
+        padding: 1rem;
+    }
+    
+    .car-specs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .car-actions {
+        flex-direction: column;
+    }
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6c757d;
+}
+
+.no-results i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #dee2e6;
+}
+
+.no-results h3 {
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+/* Filter Active State */
+.filter-active {
+    background-color: #667eea !important;
+    color: white !important;
+    border-color: #667eea !important;
+}

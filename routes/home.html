@@ -23,6 +23,90 @@
     <link href="/css/home.css" rel="stylesheet">
 
     <style>
+        /* Reduce header size */
+        .navbar {
+            padding: 0.5rem 0;
+            min-height: 60px;
+        }
+        
+        .navbar-brand img {
+            height: 35px;
+        }
+        
+        .navbar-nav .nav-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Hero Section Styling */
+        .hero-section {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons .btn {
+            margin: 0.5rem;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid #fff;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-outline-light:hover {
+            background: #fff;
+            color: #000;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons .btn {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+        
         /* Modal customizations */
         #aboutModal .modal-content,
         #contactModal .modal-content {
@@ -121,14 +205,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="carsDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cars</a>
-                        <div class="dropdown-menu" aria-labelledby="carsDropdown">
-                            <a class="dropdown-item" href="/suv">SUV</a>
-                            <a class="dropdown-item" href="/hatchback">Hatchback</a>
-                            <a class="dropdown-item" href="/saloon">Saloon</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cars">Cars</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">About</a>
@@ -145,9 +223,71 @@
     </nav>
 
     <!-- Background video -->
-    <video autoplay muted loop playsinline id="myVideo">
-        <source src="images/tesla.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline webkit-playsinline id="myVideo" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="/images/tesla.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="hero-title">Welcome to Merryfield Trading</h1>
+                    <p class="hero-subtitle">Your Gateway to Premium Vehicles</p>
+                    <div class="hero-buttons">
+                        <a href="/cars" class="btn btn-primary btn-lg mr-3">Browse Cars</a>
+                        <a href="#" class="btn btn-outline-light btn-lg" data-toggle="modal" data-target="#aboutModal">About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Ensure video plays with multiple attempts
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('myVideo');
+            if (video) {
+                // Set video properties for better autoplay
+                video.muted = true;
+                video.loop = true;
+                video.playsInline = true;
+                
+                // Try to play immediately
+                const playPromise = video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {
+                        console.log('Video started playing');
+                    }).catch(function(error) {
+                        console.log('Video autoplay failed:', error);
+                        
+                        // Try again after a short delay
+                        setTimeout(function() {
+                            video.play().catch(function(err) {
+                                console.log('Second attempt failed:', err);
+                                
+                                // Try on user interaction
+                                document.addEventListener('click', function() {
+                                    video.play().catch(function(err2) {
+                                        console.log('User interaction play failed:', err2);
+                                    });
+                                }, { once: true });
+                                
+                                // Try on scroll
+                                document.addEventListener('scroll', function() {
+                                    video.play().catch(function(err3) {
+                                        console.log('Scroll play failed:', err3);
+                                    });
+                                }, { once: true });
+                            });
+                        }, 1000);
+                    });
+                }
+            }
+        });
+    </script>
 
     <!-- About Modal -->
     <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-hidden="true">

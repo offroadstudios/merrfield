@@ -1,0 +1,510 @@
+/* Vehicles Page Styles */
+
+/* Navigation Styles */
+.navbar {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 15px !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+.navbar-toggler {
+    border: none;
+    color: white;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.masthead {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/2.jpg') center/cover no-repeat;
+}
+
+.intro-text {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.intro-lead-in {
+    font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.intro-heading {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Vehicle Cards */
+.vehicle-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.vehicle-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.vehicle-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+}
+
+.vehicle-image-container img[src*="atcdn.co.uk"] {
+    background: transparent;
+}
+
+.vehicle-card:hover .vehicle-image-container img {
+    transform: scale(1.05);
+}
+
+
+.vehicle-price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.vehicle-specs {
+    margin: 10px 0;
+}
+
+.vehicle-specs i {
+    margin-right: 5px;
+    color: #007bff;
+}
+
+/* Filter Section */
+.filter-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.filter-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 20px 30px;
+    margin: 0;
+}
+
+.filter-header h5 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.filter-header i {
+    margin-right: 10px;
+}
+
+.filter-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group label i {
+    margin-right: 5px;
+    color: #007bff;
+    width: 15px;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.15);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background-color: #212529;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer .copyright {
+    font-size: 0.9rem;
+    line-height: 40px;
+}
+
+.footer .social-buttons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+    background-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.footer .social-buttons a:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.footer .quicklinks a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer .quicklinks a:hover {
+    color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .intro-heading {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    
+    .intro-lead-in {
+        font-size: 1.2rem;
+    }
+    
+    .vehicle-image-container {
+        height: 200px;
+    }
+    
+    .masthead {
+        padding-top: 80px;
+        padding-bottom: 30px;
+    }
+    
+    .intro-text {
+        padding-top: 50px;
+        padding-bottom: 30px;
+    }
+    
+    /* Mobile vehicle cards */
+    .vehicle-card {
+        margin-bottom: 15px;
+    }
+    
+    .vehicle-card .card-body {
+        padding: 15px;
+    }
+    
+    .vehicle-card .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .vehicle-card .card-text {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .vehicle-specs {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .vehicle-card .btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        margin: 2px;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .vehicle-price {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+    
+    /* Mobile filter form */
+    .card-body {
+        padding: 15px;
+    }
+    
+    .form-control {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    /* Mobile navigation */
+    .navbar-brand img {
+        height: 35px;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Loading Animation */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 5px;
+    border: none;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(255,255,255,0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.dropdown-item {
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Minimal Page Header */
+.page-header-minimal {
+    background: #fff;
+    padding: 5px 0;
+    margin-top: 50px;
+    border-bottom: 1px solid #e9ecef;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.page-title-minimal {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.1rem;
+}
+
+.page-subtitle-minimal {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.vehicle-count-badge {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.vehicle-count-badge i {
+    font-size: 0.9rem;
+}
+
+/* Update Navigation to be more sleek */
+.navbar {
+    background: #fff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #e9ecef;
+}
+
+.navbar-nav .nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    padding: 10px 15px !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    background: #f8f9fa;
+    color: #007bff !important;
+    transform: translateY(-2px);
+}
+
+.navbar-toggler {
+    border: none;
+    color: #333;
+}
+
+/* Force image refresh and proper display */
+.vehicle-image-container img {
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Ensure unique images are displayed */
+.vehicle-image-container img[src*="atcdn.co.uk"] {
+    background: transparent;
+    opacity: 1;
+}
