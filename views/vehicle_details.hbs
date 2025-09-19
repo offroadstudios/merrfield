@@ -46,23 +46,26 @@
                         {{#if vehicle.images.length}}
                             <div class="image-slider" data-vehicle-id="{{vehicle._id}}">
                                 <div class="main-image">
-                                    <img src="{{vehicle.imagePath}}?v={{@index}}" alt="{{vehicle.title}}" class="vehicle-main-image"
-                                         onerror="this.src='/images/default-car.jpg'">
+                                    <img src="{{vehicle.imagePath}}?v={{@index}}" alt="{{vehicle.title}}" class="vehicle-main-image lightbox-trigger"
+                                         onclick="openLightbox('{{vehicle.imagePath}}?v={{@index}}', '{{vehicle.title}}')"
+                                         onerror="this.src='/images/default-car.jpg'" style="cursor: pointer;">
                                 </div>
                                 {{#if vehicle.images.length}}
                                     <div class="image-thumbnails">
                                         {{#each vehicle.images}}
                                             <img src="{{url}}?v={{@../index}}" alt="{{../title}}" 
-                                                 class="thumbnail {{#if isThumbnail}}active{{/if}}"
+                                                 class="thumbnail {{#if isThumbnail}}active{{/if}} lightbox-trigger"
                                                  data-main-src="{{url}}?v={{@../index}}"
-                                                 onerror="this.src='/images/default-car.jpg'">
+                                                 onclick="openLightbox('{{url}}?v={{@../index}}', '{{../title}}')"
+                                                 onerror="this.src='/images/default-car.jpg'" style="cursor: pointer;">
                                         {{/each}}
                                     </div>
                                 {{/if}}
                             </div>
                         {{else}}
-                            <img src="{{vehicle.imagePath}}?v={{@index}}" alt="{{vehicle.title}}" class="vehicle-main-image"
-                                 onerror="this.src='/images/default-car.jpg'">
+                            <img src="{{vehicle.imagePath}}?v={{@index}}" alt="{{vehicle.title}}" class="vehicle-main-image lightbox-trigger"
+                                 onclick="openLightbox('{{vehicle.imagePath}}?v={{@index}}', '{{vehicle.title}}')"
+                                 onerror="this.src='/images/default-car.jpg'" style="cursor: pointer;">
                         {{/if}}
                         <div class="price-badge">
                             <span class="price-amount">£{{vehicle.price}}</span>
@@ -398,11 +401,113 @@
         </div>
     </footer>
 
+    <!-- Image Lightbox Modal -->
+    <div class="modal fade" id="imageLightbox" tabindex="-1" aria-labelledby="imageLightboxLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-white" id="imageLightboxLabel">Car Image</h5>
+                    <button type="button" class="btn-close btn-close-white" id="lightboxCloseBtn" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0 text-center position-relative">
+                    <!-- Navigation Buttons -->
+                    <button class="btn btn-light lightbox-nav-btn lightbox-prev" id="prevImageBtn" style="display: none;">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-light lightbox-nav-btn lightbox-next" id="nextImageBtn" style="display: none;">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Main Image -->
+                    <img id="lightboxImage" src="" alt="Car Image" class="img-fluid" style="max-height: 80vh; width: auto;">
+                    
+                    <!-- Image Counter -->
+                    <div class="lightbox-counter" id="imageCounter" style="display: none;">
+                        <span id="currentImageNum">1</span> / <span id="totalImages">1</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-outline-light" id="lightboxCloseBtnFooter">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Lightbox functionality
+        let currentVehicleImages = [];
+        let currentImageIndex = 0;
+        
+        function openLightbox(imageUrl, title) {
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxLabel = document.getElementById('imageLightboxLabel');
+            const prevBtn = document.getElementById('prevImageBtn');
+            const nextBtn = document.getElementById('nextImageBtn');
+            const imageCounter = document.getElementById('imageCounter');
+            const currentImageNum = document.getElementById('currentImageNum');
+            const totalImages = document.getElementById('totalImages');
+            
+            // Get all vehicle images from the page
+            const vehicleImages = [];
+            document.querySelectorAll('.lightbox-trigger').forEach(img => {
+                vehicleImages.push(img.src);
+            });
+            
+            currentVehicleImages = vehicleImages;
+            currentImageIndex = currentVehicleImages.findIndex(url => url === imageUrl);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+            
+            // Show navigation if multiple images
+            if (currentVehicleImages.length > 1) {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+                imageCounter.style.display = 'block';
+                totalImages.textContent = currentVehicleImages.length;
+            } else {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                imageCounter.style.display = 'none';
+            }
+            
+            // Set the image source and title
+            lightboxImage.src = imageUrl;
+            lightboxImage.alt = title;
+            lightboxLabel.textContent = title;
+            currentImageNum.textContent = currentImageIndex + 1;
+            
+            // Show the lightbox modal
+            $('#imageLightbox').modal('show');
+        }
+        
+        // Navigation functions
+        function showPrevImage() {
+            if (currentVehicleImages.length > 1) {
+                currentImageIndex = (currentImageIndex - 1 + currentVehicleImages.length) % currentVehicleImages.length;
+                updateLightboxImage();
+            }
+        }
+        
+        function showNextImage() {
+            if (currentVehicleImages.length > 1) {
+                currentImageIndex = (currentImageIndex + 1) % currentVehicleImages.length;
+                updateLightboxImage();
+            }
+        }
+        
+        function updateLightboxImage() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            const currentImageNum = document.getElementById('currentImageNum');
+            
+            if (currentVehicleImages[currentImageIndex]) {
+                lightboxImage.src = currentVehicleImages[currentImageIndex] + '&t=' + Date.now();
+                currentImageNum.textContent = currentImageIndex + 1;
+            }
+        }
+        
         $(document).ready(function() {
             // Image slider functionality
             $(document).on('click', '.thumbnail', function(e) {
@@ -419,6 +524,39 @@
                 // Update active thumbnail
                 $slider.find('.thumbnail').removeClass('active');
                 $this.addClass('active');
+            });
+            
+            // Lightbox event listeners
+            $('#lightboxCloseBtn, #lightboxCloseBtnFooter').click(function() {
+                $('#imageLightbox').modal('hide');
+            });
+            
+            $('#prevImageBtn').click(function() {
+                showPrevImage();
+            });
+            
+            $('#nextImageBtn').click(function() {
+                showNextImage();
+            });
+            
+            // Close lightbox when clicking outside the image
+            $('#imageLightbox .modal-body').click(function(e) {
+                if (e.target === this) {
+                    $('#imageLightbox').modal('hide');
+                }
+            });
+            
+            // Keyboard navigation for lightbox
+            $(document).keydown(function(e) {
+                if ($('#imageLightbox').hasClass('show')) {
+                    if (e.key === 'Escape') {
+                        $('#imageLightbox').modal('hide');
+                    } else if (e.key === 'ArrowLeft') {
+                        showPrevImage();
+                    } else if (e.key === 'ArrowRight') {
+                        showNextImage();
+                    }
+                }
             });
         });
     </script>

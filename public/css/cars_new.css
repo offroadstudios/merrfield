@@ -292,3 +292,13 @@ body {
     color: white !important;
     border-color: #667eea !important;
 }
+
+/* Car Image Hover Effects */
+.car-image {
+    transition: all 0.3s ease;
+}
+
+.car-image:hover {
+    transform: scale(1.05);
+}
+

@@ -319,3 +319,4 @@ function contactWhatsApp(carId) {
     const whatsappUrl = `https://wa.me/447123456789?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 }
+
