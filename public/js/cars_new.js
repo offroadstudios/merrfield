@@ -67,7 +67,11 @@ $(document).ready(function() {
         console.log('Filtered cars count:', filteredCars.length);
         
         const carsGrid = $('#carsGrid');
-        carsGrid.empty();
+        
+        // Only clear the grid if we're on page 1 (fresh load or filter applied)
+        if (currentPage === 1) {
+            carsGrid.empty();
+        }
         
         if (filteredCars.length === 0) {
             showNoResults();
@@ -120,12 +124,8 @@ $(document).ready(function() {
             }
             imageUrl = `${processedUrl}?v=${timestamp}`;
         } else {
-            // Only use placeholder if absolutely no images available
-            const brand = car.brand || 'Car';
-            const model = car.model || 'Vehicle';
-            const color = getCarColor(brand);
-            const text = encodeURIComponent(`${brand} ${model}`);
-            imageUrl = `https://via.placeholder.com/400x300/${color}/ffffff?text=${text}`;
+            // Use Merrifield logo as default thumbnail for cars without images
+            imageUrl = `/images/t1.png?v=${timestamp}`;
         }
         
         console.log('Creating card for:', car.title);
@@ -202,7 +202,7 @@ $(document).ready(function() {
             return matches;
         });
         
-        currentPage = 1;
+        currentPage = 1; // Reset to page 1 when applying filters
         displayCars();
         updateResultsCount();
     }
@@ -214,7 +214,7 @@ $(document).ready(function() {
         $('#fuelFilter').val('');
         
         filteredCars = [...allCars];
-        currentPage = 1;
+        currentPage = 1; // Reset to page 1 when clearing filters
         displayCars();
         updateResultsCount();
     }
@@ -237,7 +237,7 @@ $(document).ready(function() {
             }
         });
         
-        currentPage = 1;
+        currentPage = 1; // Reset to page 1 when applying sorting
         displayCars();
     }
     

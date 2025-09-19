@@ -12,6 +12,7 @@ const saloonRouter    = require('./routes/saloon_index');
 const vehiclesRouter  = require('./routes/vehicles');
 const carsRouter      = require('./routes/cars');
 const adminRouter     = require('./routes/admin');
+const syncRouter      = require('./routes/sync');
 const UserModel       = require('./models/CustomerModel');
 const AutoSyncService = require('./utils/autoSyncService');
 
@@ -20,7 +21,7 @@ const app = express();
 /* Connect to MongoDB */
 (async () => {
   try {
-    await mongoose.connect('mongodb://win:KZSkFl1aamuVfNb9@ac-evylqtx-shard-00-00.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-01.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-02.xhngg04.mongodb.net:27017/?ssl=true&replicaSet=atlas-12fnql-shard-0&authSource=admin&retryWrites=true&w=majority&appName=autorizz-db', {
+    await mongoose.connect('mongodb://win:KZSkFl1aamuVfNb9@ac-evylqtx-shard-00-00.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-01.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-02.xhngg04.mongodb.net:27017/autorizz-db?ssl=true&replicaSet=atlas-12fnql-shard-0&authSource=admin&retryWrites=true&w=majority&appName=autorizz-db', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false
@@ -92,6 +93,7 @@ app.use('/cars', carsRouter);
 app.use('/suv', suvRouter);
 app.use('/hatchback', hatchbackRouter);
 app.use('/saloon', saloonRouter);
+app.use('/sync', syncRouter);
 
 app.post('/customer', async (req, res) => {
   const user = new UserModel({

@@ -6,7 +6,7 @@ class AutotraderAPI {
     this.sandboxURL = 'https://api-sandbox.autotrader.co.uk';
     this.key = 'OffroadStudio-StockSync-SB-02-09-25';
     this.secret = 'MYQTd6yAWwlirBlh23joDisuGkVdWaQe';
-    this.advertiserId = '66897';
+    this.advertiserId = '10042846';
     this.accessToken = null;
     this.tokenExpiry = null;
     this.isSandbox = true; // Using sandbox for testing
@@ -51,7 +51,7 @@ class AutotraderAPI {
     return true;
   }
 
-  async getVehicles(limit = 20, page = 1) {
+  async getVehicles(page = 1, limit = 20) {
     try {
       const isAuthenticated = await this.ensureAuthenticated();
       if (!isAuthenticated) {
@@ -82,12 +82,12 @@ class AutotraderAPI {
       console.log('Response data structure:', Object.keys(response.data));
       
       // Handle different response structures
-      const vehicles = response.data.results || response.data.data || response.data.vehicles || response.data || [];
+      const vehicles = response.data.vehicles || response.data.results || response.data.data || response.data || [];
       console.log(`Found ${vehicles.length} vehicles from Autotrader API`);
       
       return {
         vehicles: vehicles,
-        total: response.data.totalResults || vehicles.length,
+        total: response.data.total || response.data.totalResults || vehicles.length,
         source: 'autotrader_api'
       };
     } catch (error) {
@@ -237,7 +237,7 @@ class AutotraderAPI {
       brand: vehicleData.make || 'Unknown',
       model: vehicleData.model || '',
       fuelType: vehicleData.fuelType || 'Petrol',
-      autotraderId: vehicleData.stockId || vehicleData.id,
+      autotraderId: vehicle.metadata?.stockId || vehicleData.stockId || vehicleData.id,
       category: 'cars',
       bodyType: this.categorizeVehicle(vehicleData),
       mileage: vehicleData.odometerReadingMiles || vehicleData.mileage || 0,
