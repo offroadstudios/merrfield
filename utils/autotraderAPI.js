@@ -182,6 +182,13 @@ class AutotraderAPI {
     const media = vehicle.media || vehicleData.media || {};
     const images = media.images || [];
     
+    // Check if the vehicle should be filtered out based on advertiser advert status
+    const advertiserAdvertStatus = retailAdverts.advertiserAdvert?.status;
+    if (advertiserAdvertStatus === 'NOT_PUBLISHED') {
+      console.log(`Skipping vehicle ${vehicleData.registration || vehicleData.stockId} - Advertiser Advert Status: NOT_PUBLISHED`);
+      return null; // Return null to indicate this vehicle should be filtered out
+    }
+    
     console.log('TransformVehicleData - Media:', JSON.stringify(media, null, 2));
     console.log('TransformVehicleData - Images count:', images.length);
     
@@ -236,6 +243,7 @@ class AutotraderAPI {
       year: parseInt(vehicleData.yearOfManufacture) || parseInt(vehicleData.year) || new Date().getFullYear(),
       brand: vehicleData.make || 'Unknown',
       model: vehicleData.model || '',
+      registration: vehicleData.registration || '',
       fuelType: vehicleData.fuelType || 'Petrol',
       autotraderId: vehicle.metadata?.stockId || vehicleData.stockId || vehicleData.id,
       category: 'cars',

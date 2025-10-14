@@ -9,7 +9,7 @@ class EnhancedVehicleSyncService {
     this.syncTimer = null;
   }
 
-  async syncVehiclesFromAutotrader(limit = 50) {
+  async syncVehiclesFromAutotrader(limit = 20) {
     try {
       console.log('Starting enhanced vehicle sync from Autotrader API...');
       
@@ -54,6 +54,12 @@ class EnhancedVehicleSyncService {
       for (const vehicleData of apiVehicles.vehicles) {
         try {
           const transformedVehicle = this.autotraderAPI.transformVehicleData(vehicleData);
+          
+          // Skip vehicles that are filtered out (e.g., NOT_PUBLISHED status)
+          if (!transformedVehicle) {
+            skippedCount++;
+            continue;
+          }
           
           // Check if vehicle exists
           const existingVehicle = await VehicleModel.findOne({ 

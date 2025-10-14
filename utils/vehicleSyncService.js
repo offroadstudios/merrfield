@@ -6,12 +6,12 @@ class VehicleSyncService {
     this.autotraderAPI = new AutotraderAPI();
   }
 
-  async syncVehiclesFromAutotrader(limit = 10) {
+  async syncVehiclesFromAutotrader(limit = 20) {
     try {
       console.log('Starting vehicle sync from Autotrader API...');
       
-      // Fetch vehicles from Autotrader API
-      const apiResponse = await this.autotraderAPI.getVehicles(limit);
+      // Fetch vehicles from Autotrader API (page 1, with specified limit)
+      const apiResponse = await this.autotraderAPI.getVehicles(1, limit);
       
       if (!apiResponse || (!apiResponse.vehicles && !apiResponse.data)) {
         console.log('No vehicles found in API response');
@@ -28,6 +28,12 @@ class VehicleSyncService {
         try {
           // Transform the data to match our schema
           const transformedData = this.autotraderAPI.transformVehicleData(vehicleData);
+          
+          // Skip vehicles that are filtered out (e.g., NOT_PUBLISHED status)
+          if (!transformedData) {
+            skippedCount++;
+            continue;
+          }
           
           // Check if vehicle already exists (by autotraderId)
           const existingVehicle = await VehicleModel.findOne({ 

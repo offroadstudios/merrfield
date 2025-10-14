@@ -35,7 +35,7 @@ class AutoSyncService {
     console.log('Starting auto sync...');
 
     try {
-      const result = await this.vehicleSyncService.syncVehiclesFromAutotrader(20);
+      const result = await this.vehicleSyncService.syncVehiclesFromAutotrader(20); // 20 vehicles per page
       this.lastSyncTime = new Date();
       
       console.log(`Auto sync completed: ${result.synced} vehicles synced, ${result.skipped} skipped`);

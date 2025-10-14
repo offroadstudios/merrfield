@@ -14,24 +14,29 @@ const carsRouter      = require('./routes/cars');
 const adminRouter     = require('./routes/admin');
 const syncRouter      = require('./routes/sync');
 const UserModel       = require('./models/CustomerModel');
-const AutoSyncService = require('./utils/autoSyncService');
+const AutomatedSyncScheduler = require('./utils/automatedSyncScheduler');
 
 const app = express();
 
 /* Connect to MongoDB */
 (async () => {
   try {
-    await mongoose.connect('mongodb://win:KZSkFl1aamuVfNb9@ac-evylqtx-shard-00-00.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-01.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-02.xhngg04.mongodb.net:27017/autorizz-db?ssl=true&replicaSet=atlas-12fnql-shard-0&authSource=admin&retryWrites=true&w=majority&appName=autorizz-db', {
+    await mongoose.connect('mongodb+srv://win:KZSkFl1aamuVfNb9@ac-evylqtx-shard-00-00.xhngg04.mongodb.net/autorizz-db?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false
     });
     console.log('MongoDB connected');
     
-    // Initialize auto-sync service
-    const autoSyncService = new AutoSyncService();
-    await autoSyncService.initialize();
-    console.log('Auto-sync service started');
+    // Initialize automated sync scheduler
+    const syncScheduler = new AutomatedSyncScheduler();
+    syncScheduler.initialize();
+    
+    // Run initial sync
+    console.log('🔄 Running initial sync...');
+    await syncScheduler.runManualSync();
+    
+    console.log('✅ Automated sync scheduler started');
   } catch (err) {
     console.error('MongoDB Error: Failed to connect');
     console.error(err);

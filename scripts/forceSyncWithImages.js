@@ -19,7 +19,7 @@ async function forceSyncWithImages() {
 
         // Get vehicles with images
         console.log('Fetching vehicles from API...');
-        const response = await api.getVehicles(20, 1);
+        const response = await api.getVehicles(1, 20);
         console.log('API Response:', JSON.stringify(response, null, 2));
 
         if (response.vehicles && response.vehicles.length > 0) {

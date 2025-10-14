@@ -15,6 +15,7 @@ const VehicleSchema = new mongoose.Schema({
   year: Number,
   brand: String,
   model: String,
+  registration: String,
   fuelType: String,
   
   // Autotrader API specific fields
