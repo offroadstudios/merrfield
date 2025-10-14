@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://merryfield-hvd3afcretgue6fa.uksouth-01.azurewebsites.net/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /login
+Disallow: /sync/
+
+# Allow all car pages
+Allow: /cars
+Allow: /vehicles
+Allow: /suv
+Allow: /hatchback
+Allow: /saloon

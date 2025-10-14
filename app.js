@@ -89,7 +89,7 @@ console.log('🔌 PORT:', process.env.PORT || '3000');
 
 /* Routes - Define before static middleware */
 app.get('/', (req, res) => res.redirect('/home'));
-app.get('/login', (req, res) => res.redirect('/admin'));
+// Login route is now handled by the admin router
 
 // Health check endpoint for Azure (must be before static middleware)
 app.get('/health', (req, res) => {
@@ -117,18 +117,11 @@ app.get('/test', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/home', (req, res) =>
-  res.sendFile(path.join(__dirname, 'routes', 'home.html'))
+  res.render('home_index')
 );
 
 // *** Register your new login routes BEFORE the 404 handler ***
-app.get('/login', (req, res, next) => {
-  res.sendFile(path.join(__dirname, 'routes', 'login.html'), err => {
-    if (err) {
-      console.error('Error sending login.html:', err);
-      return next(err);
-    }
-  });
-});
+// Login route is handled by admin router
 
 app.get('/loginerror', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'routes', 'loginerror.html'), err => {

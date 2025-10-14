@@ -23,7 +23,7 @@ router.use(express.static("public"));
 
 // GET Root Route - Admin login
 router.get('/', function (req, res) {
-    res.sendFile(__dirname + "/login.html");
+    res.render('login_index');
 });
 
 // GET Login Error
