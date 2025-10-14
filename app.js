@@ -21,26 +21,35 @@ const app = express();
 /* Connect to MongoDB */
 (async () => {
   try {
-    await mongoose.connect('mongodb+srv://win:KZSkFl1aamuVfNb9@ac-evylqtx-shard-00-00.xhngg04.mongodb.net/autorizz-db?retryWrites=true&w=majority', {
+    await mongoose.connect('mongodb://win:KZSkFl1aamuVfNb9@ac-evylqtx-shard-00-00.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-01.xhngg04.mongodb.net:27017,ac-evylqtx-shard-00-02.xhngg04.mongodb.net:27017/autorizz-db?ssl=true&replicaSet=atlas-12fnql-shard-0&authSource=admin&retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false
     });
-    console.log('MongoDB connected');
+    console.log('✅ MongoDB connected successfully');
     
-    // Initialize automated sync scheduler
-    const syncScheduler = new AutomatedSyncScheduler();
-    syncScheduler.initialize();
-    
-    // Run initial sync
-    console.log('🔄 Running initial sync...');
-    await syncScheduler.runManualSync();
-    
-    console.log('✅ Automated sync scheduler started');
+    // Initialize automated sync scheduler (non-blocking)
+    try {
+      const syncScheduler = new AutomatedSyncScheduler();
+      syncScheduler.initialize();
+      
+      // Run initial sync in background (don't await)
+      console.log('🔄 Starting initial sync in background...');
+      syncScheduler.runManualSync().then(() => {
+        console.log('✅ Initial sync completed');
+      }).catch(err => {
+        console.error('⚠️ Initial sync failed:', err.message);
+      });
+      
+      console.log('✅ Automated sync scheduler started');
+    } catch (syncErr) {
+      console.error('⚠️ Sync scheduler initialization failed:', syncErr.message);
+      // Don't exit the app if sync fails
+    }
   } catch (err) {
-    console.error('MongoDB Error: Failed to connect');
-    console.error(err);
-    process.exit(1);
+    console.error('❌ MongoDB connection failed:', err.message);
+    console.error('⚠️ App will continue without database connection');
+    // Don't exit the app - let it start and handle DB errors gracefully
   }
 })();
 
@@ -60,14 +69,26 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(compression());
 
 console.log('App is starting…');
 
-/* Routes */
+/* Routes - Define before static middleware */
 app.get('/', (req, res) => res.redirect('/home'));
 app.get('/login', (req, res) => res.redirect('/admin'));
+
+// Health check endpoint for Azure (must be before static middleware)
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+  });
+});
+
+// Static middleware after routes
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/home', (req, res) =>
   res.sendFile(path.join(__dirname, 'routes', 'home.html'))
@@ -91,6 +112,7 @@ app.get('/loginerror', (req, res, next) => {
     }
   });
 });
+
 
 app.use('/admin', adminRouter);
 app.use('/vehicles', vehiclesRouter);
