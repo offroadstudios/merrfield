@@ -18,6 +18,16 @@ const AutomatedSyncScheduler = require('./utils/automatedSyncScheduler');
 
 const app = express();
 
+// Global error handlers for Azure debugging
+process.on('uncaughtException', (err) => {
+  console.error('❌ Uncaught Exception:', err);
+  console.error('Stack:', err.stack);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
 /* Connect to MongoDB */
 (async () => {
   try {
@@ -72,6 +82,10 @@ app.use(cookieParser());
 app.use(compression());
 
 console.log('App is starting…');
+console.log('📁 Current working directory:', process.cwd());
+console.log('🔧 Node.js version:', process.version);
+console.log('🌍 NODE_ENV:', process.env.NODE_ENV || 'development');
+console.log('🔌 PORT:', process.env.PORT || '3000');
 
 /* Routes - Define before static middleware */
 app.get('/', (req, res) => res.redirect('/home'));
@@ -83,7 +97,19 @@ app.get('/health', (req, res) => {
     status: 'healthy',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
-    mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+    mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    environment: process.env.NODE_ENV || 'development',
+    port: process.env.PORT || '3000',
+    nodeVersion: process.version
+  });
+});
+
+// Simple test endpoint
+app.get('/test', (req, res) => {
+  res.status(200).json({
+    message: 'App is working!',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
   });
 });
 
