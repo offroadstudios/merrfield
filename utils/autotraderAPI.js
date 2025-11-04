@@ -4,12 +4,13 @@ class AutotraderAPI {
   constructor() {
     this.baseURL = 'https://api.autotrader.co.uk';
     this.sandboxURL = 'https://api-sandbox.autotrader.co.uk';
-    this.key = 'OffroadStudio-StockSync-SB-02-09-25';
-    this.secret = 'MYQTd6yAWwlirBlh23joDisuGkVdWaQe';
-    this.advertiserId = '10042846';
+    // LIVE API CREDENTIALS - Replace with your live/production API credentials
+    this.key = 'Offroad-Studios-DealerWebsite-27-10-25'; // Replace with your live API key
+    this.secret = 'YCva7RndvyZzxz0dFwQcjDkzbjESz1tW'; // Replace with your live API secret
+    this.advertiserId = '10045517'; // Replace with your live advertiser ID
     this.accessToken = null;
     this.tokenExpiry = null;
-    this.isSandbox = true; // Using sandbox for testing
+    this.isSandbox = false; // Set to false to use LIVE/PRODUCTION API
   }
 
   async authenticate() {
